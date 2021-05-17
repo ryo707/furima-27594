@@ -44,44 +44,47 @@ Things you may want to cover:
 
 ## addressesテーブル
 
-|Column      |Type      |Options    |
-|------------|----------|-----------|
-|postal_code |string    |null: false|
-|prefectures |string    |null: false|	
-|city        |string    |null: false|	
-|street      |string    |null: false|	
-|building    |string    |null: false|	
-|phone       |string    |null: false|	
+|Column         |Type      |Options    |
+|---------------|----------|-----------|
+|postal_code    |string    |null: false|
+|prefectures_id |integer   |null: false|	
+|city           |string    |null: false|	
+|street         |string    |null: false|	
+|building       |string    |           |	
+|phone          |string    |null: false|
+|user_id        |integer   |null: false, foreign_key: true|
 
 ### Association
-- belongs_to :users
+- belongs_to :transacts
 
 
 ## itemsテーブル
 
-|Column      |Type      |Options    |
-|------------|----------|-----------|
-|name        |string    |null: false|
-|price       |string    |null: false|
-|description |string    |null: false|
-|size        |string    |null: false|
-|seller_id   |resources |null: false|
-|category    |string    |null: false|
-|condition   |string    |null: false|
-|area        |string    |null: false|
+|Column        |Type      |Options    |
+|--------------|----------|-----------|
+|name          |string    |null: false|
+|price         |integer   |null: false|
+|description   |text      |null: false|
+|prefectures_id|integer   |null: false|
+|seller_id     |resources |null: false|
+|category_id   |integer    |null: false|
+|condition_id  |integer    |null: false|
+|area_id       |integer    |null: false|
+|delivery_days_id|integer    |null: false|
+|shipping_charges_id|integer |null: false|
+
 
 ### Association
 - belongs_to :users
-- has_one :transacts
+- has_one :transact
 
 ## transactsテーブル
 
-|Column   |Type     |Option           |
-|---------|---------|-----------------|
-|seller_id|resources|foreign_key: true|
-|buyer_id |resources|foreign_key: true|
-|item_id  |resources|foreign_key: true|
+|Column   |Type      |Option           |
+|---------|----------|-----------------|
+|user_id  |references|foreign_key: true|
+|item_id  |resources |foreign_key: true|
 
 ### Association
--belongs_to :users
--belongs_to :items
+- has_one :transact
+- belongs_to :items
