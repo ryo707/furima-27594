@@ -40,7 +40,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_one :addresses
+- has_one :transact
 
 ## addressesテーブル
 
@@ -55,7 +55,7 @@ Things you may want to cover:
 |user_id        |integer   |null: false, foreign_key: true|
 
 ### Association
-- belongs_to :transacts
+- belongs_to :transact
 
 
 ## itemsテーブル
@@ -75,16 +75,17 @@ Things you may want to cover:
 
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_one :transact
 
 ## transactsテーブル
 
 |Column   |Type      |Option           |
 |---------|----------|-----------------|
-|user_id  |references|foreign_key: true|
-|item_id  |resources |foreign_key: true|
+|user     |references|foreign_key: true|
+|item     |references|foreign_key: true|
 
 ### Association
-- has_one :transact
-- belongs_to :items
+- has_one :addresse
+- belongs_to :item
+- belongs_to :user
