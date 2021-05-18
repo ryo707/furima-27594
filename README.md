@@ -52,7 +52,7 @@ Things you may want to cover:
 |street         |string    |null: false|	
 |building       |string    |           |	
 |phone          |string    |null: false|
-|transacts_id   |integer   |null: false, foreign_key: true|
+|transact       |references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :transact
@@ -66,7 +66,7 @@ Things you may want to cover:
 |price         |integer   |null: false|
 |description   |text      |null: false|
 |prefectures_id|integer   |null: false|
-|seller_id     |resources |null: false|
+|user          |reference |null: false|
 |category_id   |integer    |null: false|
 |condition_id  |integer    |null: false|
 |area_id       |integer    |null: false|
@@ -86,6 +86,6 @@ Things you may want to cover:
 |item     |references|foreign_key: true|
 
 ### Association
-- has_one :addresses
+- has_one :addresse
 - belongs_to :item
 - belongs_to :user
