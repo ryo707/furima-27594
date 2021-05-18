@@ -40,7 +40,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_one :transact
+- has_many :transacts
 
 ## addressesテーブル
 
@@ -52,7 +52,7 @@ Things you may want to cover:
 |street         |string    |null: false|	
 |building       |string    |           |	
 |phone          |string    |null: false|
-|user_id        |integer   |null: false, foreign_key: true|
+|transacts_id   |integer   |null: false, foreign_key: true|
 
 ### Association
 - belongs_to :transact
@@ -86,6 +86,6 @@ Things you may want to cover:
 |item     |references|foreign_key: true|
 
 ### Association
-- has_one :addresse
+- has_one :addresses
 - belongs_to :item
 - belongs_to :user
