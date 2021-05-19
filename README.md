@@ -47,7 +47,7 @@ Things you may want to cover:
 |Column         |Type      |Options    |
 |---------------|----------|-----------|
 |postal_code    |string    |null: false|
-|prefectures_id |integer   |null: false|	
+|prefecture_id  |integer   |null: false|	
 |city           |string    |null: false|	
 |street         |string    |null: false|	
 |building       |string    |           |	
@@ -65,12 +65,12 @@ Things you may want to cover:
 |name          |string    |null: false|
 |price         |integer   |null: false|
 |description   |text      |null: false|
-|prefectures_id|integer   |null: false|
+|prefecture_id |integer   |null: false|
 |user          |reference |null: false|
 |category_id   |integer    |null: false|
 |condition_id  |integer    |null: false|
-|delivery_days_id|integer    |null: false|
-|shipping_charges_id|integer |null: false|
+|delivery_day_id|integer    |null: false|
+|shipping_charge_id|integer |null: false|
 
 
 ### Association
