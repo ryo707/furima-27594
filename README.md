@@ -69,7 +69,6 @@ Things you may want to cover:
 |user          |reference |null: false|
 |category_id   |integer    |null: false|
 |condition_id  |integer    |null: false|
-|area_id       |integer    |null: false|
 |delivery_days_id|integer    |null: false|
 |shipping_charges_id|integer |null: false|
 
