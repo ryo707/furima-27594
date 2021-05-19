@@ -85,6 +85,6 @@ Things you may want to cover:
 |item     |references|foreign_key: true|
 
 ### Association
-- has_one :addresse
+- has_one :address
 - belongs_to :item
 - belongs_to :user
