@@ -5,11 +5,11 @@ window.addEventListener('load', function(){
     const inputValue = priceInput.value;
     const addTaxPrice = document.getElementById("add-tax-price");
     const profit = document.getElementById("profit");
-    const taxPrice =  inputValue * Math.round(0.1);
+    const taxPrice =  inputValue * 0.1;
     const saleProfit = inputValue - taxPrice;
 
-    addTaxPrice.innerHTML = taxPrice;
-    profit.innerHTML = saleProfit;
+    addTaxPrice.innerHTML = Math.round(taxPrice);
+    profit.innerHTML = Math.round(saleProfit);
   });
 })
 

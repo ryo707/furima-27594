@@ -84,14 +84,30 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("User must exist") 
       end
-      it 'それぞれの値が1の時登録されない' do
+      it 'category_idが1の時登録されない' do
         @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+      it 'condition_idが1の時登録されない' do
         @item.condition_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+      end
+      it 'shipping_charge_idが1の時登録されない'do
         @item.shipping_charge_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
+      end
+      it 'prefecture_idが1の時登録できない' do
         @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+      it 'delivery_day_idが1の時登録できない' do
         @item.delivery_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1", "Condition must be other than 1", "Shipping charge must be other than 1", "Prefecture must be other than 1", "Delivery day must be other than 1")
+        expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
       end
     end
   end
