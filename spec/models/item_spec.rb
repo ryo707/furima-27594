@@ -60,14 +60,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
       it 'priceが300より少ないと登録できない' do
-        @item.price = "100"
+        @item.price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 300")
+        expect(@item.errors.full_messages).to include("Price must be greater than 299")
       end
       it 'priceが9999999より多いと登録できない' do
-        @item.price = "10000000"
+        @item.price = 10000000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
+        expect(@item.errors.full_messages).to include("Price must be less than 10000000")
       end
       it 'priceが半角英数混合では登録できない' do
         @item.price = "100aaa"
@@ -83,6 +83,15 @@ RSpec.describe Item, type: :model do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("User must exist") 
+      end
+      it 'それぞれの値が1の時登録されない' do
+        @item.category_id = 1
+        @item.condition_id = 1
+        @item.shipping_charge_id = 1
+        @item.prefecture_id = 1
+        @item.delivery_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1", "Condition must be other than 1", "Shipping charge must be other than 1", "Prefecture must be other than 1", "Delivery day must be other than 1")
       end
     end
   end
