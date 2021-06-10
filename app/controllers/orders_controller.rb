@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_item, only: [:index, :create]
+  # before_action :authenticate_user!
+  # before_action :set_item, only: [:index, :create]
 
   # def index
   #   if user_signed_in? && current_user.id != @item.user_id && @item.order == nil
