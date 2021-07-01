@@ -11,9 +11,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def new
-    @item_addresse = OrderAddress.new
-  end
 
   def create
     @item_order = ItemOrder.new(order_params)

@@ -35,11 +35,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def user_item_id
-    if current_user.id != @item.user.id
-      redirect_to root_path
-    end
-  end
+
 
   def destroy
     if @item.destroy
@@ -55,10 +51,9 @@ class ItemsController < ApplicationController
 
 
   def move_to_index
-    unless user_signed_in? && current_user.id == @item.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index if (current_user.id != @item.user_id) || @item.order.present?
   end
+
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :prefecture_id, :delivery_day_id, :price, :image

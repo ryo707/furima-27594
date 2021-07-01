@@ -8,7 +8,8 @@ class ItemOrder
     validates :city, :street
     validates :token
     validates :user_id, :item_id
-    validates :phone, format: { with: /\A\d{11}\z/ }
+    validates :phone, format: { with: /\A\d{10,11}\z/ }
+    
   end
   
 
