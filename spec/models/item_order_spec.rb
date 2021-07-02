@@ -75,8 +75,13 @@ RSpec.describe ItemOrder, type: :model do
           @item_order.valid?
           expect(@item_order.errors.full_messages).to include("Phone can't be blank", "Phone is invalid")
         end
-        it 'phoneが11桁でなければ購入できない' do
-          @item_order.phone = "080123456789"
+        it 'phoneが10桁~11桁でなければ購入できない' do
+          @item_order.phone = "0801234567"
+          @item_order.valid?
+          expect(@item_order.errors.full_messages).to include()
+        end
+        it 'phoneが12桁以上では購入できない' do
+          @item_order.phone = "111111111111"
           @item_order.valid?
           expect(@item_order.errors.full_messages).to include("Phone is invalid")
         end
