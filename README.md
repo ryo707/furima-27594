@@ -52,7 +52,7 @@ Things you may want to cover:
 |street         |string    |null: false|	
 |building       |string    |           |	
 |phone          |string    |null: false|
-|transact_id    |references|null: false, foreign_key: true|
+|order_id       |integer   |null: false, foreign_key: true|
 
 ### Association
 - belongs_to :order

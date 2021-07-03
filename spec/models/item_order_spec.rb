@@ -85,6 +85,11 @@ RSpec.describe ItemOrder, type: :model do
           @item_order.valid?
           expect(@item_order.errors.full_messages).to include("Phone is invalid")
         end
+        it '電話番号が9桁以下だと保存できない' do
+          @item_order.phone = '090123456'
+          @item_order.valid?
+          expect(@item_order.errors.full_messages).to include('電話番号は半角数字10~11桁で入力してください')
+        end
         it 'phoneが半角数字のみでないと登録できない' do
           @item_order.phone = '09012345678'
           @item_order.valid?
