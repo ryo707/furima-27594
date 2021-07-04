@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text    :description,         null:false
       t.integer :category_id,         null:false
       t.integer :condition_id,        null:false
-      t.itneger :prefectuire_id,      null:false
+      t.integer :prefecture_id,       null:false
       t.integer :delivery_day_id,     null:false
       t.integer :shipping_charge_id,  null:false
       t.references :user,             null:false
@@ -14,4 +14,3 @@ class CreateItems < ActiveRecord::Migration[6.0]
     end
   end
 end
-
