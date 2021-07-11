@@ -42,7 +42,7 @@ Things you may want to cover:
 - has_many :items
 - has_many :orders
 
-## addressesテーブル
+## item_ordersテーブル
 
 |Column         |Type      |Options    |
 |---------------|----------|-----------|
