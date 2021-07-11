@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: " Include both letters and numbers"}
+
 
     with_options format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/} do
       validates :first_name
@@ -20,10 +22,6 @@ class User < ApplicationRecord
     end
 
 
-    VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i 
-      validates :password, 
-                format: { with: VALID_PASSWORD_REGEX }
-  
     validates :birthday
   end
 end
